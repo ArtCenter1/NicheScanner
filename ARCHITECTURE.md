@@ -59,8 +59,8 @@ D:/My_Projects/Niche Scanner/
 │   │   └── lib/
 │   │       └── api.ts
 │   └── package.json
-├── docker-compose.yml        ← Modified from Polsia
-├── Makefile                   ← Modified from Polsia
+├── docker-compose.yml        ← Forked from Polsia (adapted)
+├── Makefile                   ← Forked from Polsia (adapted)
 └── .env.example
 ```
 
@@ -74,7 +74,7 @@ Verify: `cd backend && uvicorn app.main:app --reload`
 
 ### Task 3 — Setup test infrastructure
 
-Copy from Polsia's `conftest.py` pattern. Use `HERMES_MOCK=true` in tests (not `CLAUDE_CLI_MOCK`). SQLite in-memory for unit tests.
+Pattern from Polsia fork (`conftest.py`). Use `HERMES_MOCK=true` in tests (not `CLAUDE_CLI_MOCK`). SQLite in-memory for unit tests.
 
 ---
 
@@ -178,7 +178,7 @@ Layout:
 
 ### Task 11 — API client
 
-Copy from Polsia's `frontend/src/lib/api.ts`. Add `POST /analyze` and `GET /report/{id}` endpoints.
+Adapt from Polsia fork (`frontend/src/lib/api.ts`). Add `POST /analyze` and `GET /report/{id}` endpoints.
 
 ---
 
@@ -186,7 +186,7 @@ Copy from Polsia's `frontend/src/lib/api.ts`. Add `POST /analyze` and `GET /repo
 
 ### Task 12 — Docker Compose
 
-Modify Polsia's `docker-compose.yml`:
+Modify `docker-compose.yml` (from Polsia fork):
 - Remove: ChromaDB, celery, nginx
 - Keep: PostgreSQL, backend, frontend
 - Add health checks for backend + frontend
