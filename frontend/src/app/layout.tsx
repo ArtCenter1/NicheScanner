@@ -3,8 +3,8 @@ import "./globals.css";
 import { Sidebar } from "@/components/layout/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Polsia — AI Business Agent",
-  description: "Autonomous AI platform running your company 24/7",
+  title: "Niche Scanner — Niche Market Discovery",
+  description: "Find the best business idea to build — in under 60 seconds",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

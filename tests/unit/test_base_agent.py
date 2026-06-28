@@ -1,4 +1,4 @@
-"""Test BasePolsiaAgent.call_claude() — subprocess mock."""
+"""Test base agent call_claude() — subprocess mock (Niche Scanner)."""
 import json
 import os
 import pytest

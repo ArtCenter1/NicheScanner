@@ -30,6 +30,6 @@ describe("Sidebar", () => {
 
   it("shows the app title", () => {
     render(<Sidebar />);
-    expect(screen.getByText("Polsia")).toBeInTheDocument();
+    expect(screen.getByText("Niche Scanner")).toBeInTheDocument();
   });
 });
