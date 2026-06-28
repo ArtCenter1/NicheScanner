@@ -45,18 +45,21 @@ export default function Home() {
 
   // Polling loop
   useEffect(() => {
-    if (!analysisId || phase !== "submitting") return;
+    console.log(`[NicheScanner][useEffect] Running effect. analysisId: ${analysisId}, phase: ${phase}`);
+    if (!analysisId || (phase !== "submitting" && phase !== "scraping")) return;
 
     const timer = setInterval(async () => {
       pollCount.current += 1;
 
       try {
         const data: AnalysisResponse = await pollAnalysis(analysisId);
+        console.log(`[NicheScanner] Poll ${pollCount.current}: status=${data.status}, analysisId=${analysisId}`);
 
         if (data.status === "failed") {
           setPhase("error");
           setErrorMsg(data.error ?? "Analysis failed");
           clearInterval(timer);
+          console.error("[NicheScanner] Analysis failed:", data.error);
           return;
         }
 
@@ -67,6 +70,7 @@ export default function Home() {
         if (newPhase === "done") {
           setResults(data.ideas ?? []);
           clearInterval(timer);
+          console.log("[NicheScanner] Analysis done. Results:", data.ideas);
           return;
         }
 
@@ -74,9 +78,11 @@ export default function Home() {
           setPhase("error");
           setErrorMsg("Analysis timed out. Please try again.");
           clearInterval(timer);
+          console.error("[NicheScanner] Analysis timed out.");
           return;
         }
-      } catch {
+      } catch (err) {
+        console.error("[NicheScanner] Network error during poll:", err);
         // Network error during poll — keep trying
       }
     }, POLL_INTERVAL_MS);
@@ -94,21 +100,25 @@ export default function Home() {
     try {
       const { analysis_id } = await submitAnalysis(ideas);
       setAnalysisId(analysis_id);
+      console.log("[NicheScanner] Analysis submitted. ID:", analysis_id);
+      setAnalysisId(analysis_id);
       setPhase("scraping");
       setPhaseIndex(0);
-    } catch (err) {
+      } catch (err) {
+      console.error("[NicheScanner] Failed to start analysis:", err);
       setPhase("error");
       setErrorMsg(err instanceof Error ? err.message : "Failed to start analysis");
-    }
-  };
+      }
+      };
 
-  const handleRetry = () => {
-    setPhase("idle");
-    setPhaseIndex(-1);
-    setResults([]);
-    setAnalysisId(null);
-    setErrorMsg(null);
-  };
+      const handleRetry = () => {
+      console.log("[NicheScanner] Resetting state.");
+      setPhase("idle");
+      setPhaseIndex(-1);
+      setResults([]);
+      setAnalysisId(null);
+      setErrorMsg(null);
+      };
 
   // --- Render ---
   return (

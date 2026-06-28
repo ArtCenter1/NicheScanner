@@ -110,7 +110,7 @@ async def run_analysis(analysis_id: str, ideas: list[str]) -> None:
 
             analysis.status = "complete" if not all_failed else "partial"
             analysis.results = results_list
-            analysis.completed_at = datetime.now(UTC)
+            analysis.completed_at = datetime.utcnow()
             await session.commit()
 
             # --- Step 5: Generate PDF (fire-and-forget style) ---
