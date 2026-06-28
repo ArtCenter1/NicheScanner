@@ -32,8 +32,8 @@ export function Sidebar() {
   return (
     <aside className="w-56 min-h-screen bg-gray-900 text-white flex flex-col">
       <div className="p-4 border-b border-gray-700">
-        <h1 className="text-lg font-bold text-indigo-400">Polsia</h1>
-        <p className="text-xs text-gray-400">AI Business Agent</p>
+        <h1 className="text-lg font-bold text-indigo-400">Niche Scanner</h1>
+        <p className="text-xs text-gray-400">Niche Market Discovery</p>
       </div>
       <nav className="flex-1 p-3 space-y-1">
         {NAV_ITEMS.map(({ href, label, icon: Icon }) => {

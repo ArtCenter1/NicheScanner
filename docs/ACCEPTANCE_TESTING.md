@@ -1,4 +1,4 @@
-# Acceptance Testing Plan — Polsia AI Business Agent
+# Acceptance Testing Plan — Niche Scanner
 
 ## How to run all tests
 
@@ -193,5 +193,5 @@ docker-compose up -d && npx playwright test e2e/ --reporter=html
 - [ ] `SANDBOX_MODE=false` + real Render keys → trigger deploy from dashboard → Render dashboard shows active deploy
 - [ ] Morning cycle runs at 06:00 UTC → tasks visible in dashboard
 - [ ] Agent trigger → Celery worker picks up task → activity feed updates via WebSocket
-- [ ] Claude CLI authenticated (`claude login` on host) → agent runs real inference
+- [ ] Claude CLI authenticated (`hermes` (no login needed) on host) → agent runs real inference
 - [ ] Stripe webhook received → event appears in `/finance/events`

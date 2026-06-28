@@ -1,0 +1,12 @@
+{
+  "/agents/page": "app/agents/page.js",
+  "/page": "app/page.js",
+  "/social/page": "app/social/page.js",
+  "/outreach/page": "app/outreach/page.js",
+  "/finance/page": "app/finance/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/ads/page": "app/ads/page.js",
+  "/memory/page": "app/memory/page.js",
+  "/settings/page": "app/settings/page.js",
+  "/tasks/page": "app/tasks/page.js"
+}

@@ -1,5 +1,5 @@
 {
-  "name": "polsia-e2e",
+  "name": "niche-scanner-e2e",
   "private": true,
   "scripts": {
     "test": "playwright test",
